@@ -28,11 +28,12 @@ for _ in range(K):
         graph[u - 1].add(v - 1)
         graph[v - 1].add(u - 1)
     visited = [False] * V
-    result = []
     for i in range(V):
         if not visited[i]:
-            result.append(isBipartiteGraph(graph, i, visited))
-    if all(result):
+            result = isBipartiteGraph(graph, i, visited)
+            if not result:
+                break
+    if result:
         print("YES")
     else:
         print("NO")
