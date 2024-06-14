@@ -1,0 +1,13 @@
+import sys
+
+N, C = map(int, sys.stdin.readline().split())
+time = list(map(int, sys.stdin.readline().split()))
+
+cnt = 1
+for i in range(len(time) - 1, 0, -1):
+	if time[i] - time[i - 1] <= C:
+		cnt += 1
+	else:
+		break
+
+print(cnt)
